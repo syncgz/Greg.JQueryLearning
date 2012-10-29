@@ -1,22 +1,18 @@
 ﻿@{
     Layout = null;
 }
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Example</title>
-    
     <script src="../../Scripts/jquery-1.8.2.js" type="text/javascript"></script>
-    
-    <link rel="stylesheet" type="text/css" href="../../Content/styles.css"/>    
-    
-    <!--Podlaczenie Intellisense do VS-->    
-    @if (false) 
+    <link rel="stylesheet" type="text/css" href="../../Content/styles.css" />
+    <!--Podlaczenie Intellisense do VS-->
+    @if (false)
     { 
         <script src="../../Scripts/jquery-1.7.1-vsdoc.js" type="text/javascript"></script> 
     }
-    @*
+@*
     <!--Odpalanie funkcji po zakonczeniu ladowania strony!!!-->
     <script type="text/javascript">
         $(document).ready(
@@ -85,7 +81,7 @@
     </script>
     *@
     
-    <script type="text/javascript">
+@*<script type="text/javascript">
         $(document).ready(function () 
         {
             $('label').css("color", "red").add("input[name!='rose']").filter("[for!='snowdrop']").css("font-size", ".75em"); 
@@ -112,52 +108,99 @@
                 }
             }
         }); 
-</script>
+    </script>*@
+    
+@*<script type="text/javascript">
+        $(document).ready(function () {
 
+            var a = document.getElementById("peony");
+
+            var sel = $("img");
+
+            console.log(sel.length);
+
+            for (var i = 0; i < sel.length; i++) {
+                console.log(sel[i].tagName + sel[i].src);
+            }
+        }); 
+    </script>*@
+    
+@*<script type="text/javascript">
+        $(document).ready(function () {
+
+            $('label').css("color", "green").css("font-size", ".75em"); ;
+        }); 
+    </script>*@
+    <!--Tworzenie nowego elementu-->
+    
+    <!-- Odczytywanie wartosci poszczegolnych elementow!!!-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            debugger;
+            $('input').val(function (index, value) {
+                return index;
+            });
+
+            $('input').each(function (index, value) {
+                var value = $(element).val();
+
+            });
+
+        }); 
+    </script>
 </head>
 <body>
-    <h1>Jacqui's Flower Shop</h1>
+    <h1>
+        Jacqui's Flower Shop</h1>
     <form method="post">
-        <div id="oblock">        
-            <div class="dtable">
-                <div id="row1" class="drow">
-                    <div class="dcell">
-                        <img src="../../Content/Images/astor.png"/>
-                        <label for="astor">Astor:</label>
-                        <input name="astor" value="0" required>
-                    </div>
-                    <div class="dcell">
-                        <img src="../../Content/Images/daffodil.png"/>
-                        <label for="daffodil">Daffodil:</label>
-                        <input name="daffodil" value="0" required >
-                    </div>
-                    <div class="dcell">
-                        <img src="../../Content/Images/rose.png"/>
-                        <label for="rose">Rose:</label>
-                        <input name="rose" value="0" required>
-                    </div>                
+    <div id="oblock">
+        <div class="dtable">
+            <div id="row1" class="drow">
+                <div class="dcell">
+                    <img src="../../Content/Images/astor.png" />
+                    <label for="astor">
+                        Astor:</label>
+                    <input name="astor" value="0" required>
                 </div>
-                <div id="row2" class="drow">
-                    <div class="dcell">
-                        <img src="../../Content/Images/peony.png"/>
-                        <label for="peony">Peony:</label>
-                        <input name="peony" value="0" required>
-                    </div>
-                    <div class="dcell">
-                        <img src="../../Content/Images/primula.png"/>
-                        <label for="primula">Primula:</label>
-                        <input name="primula" value="0" required>
-                    </div>            
-                    <div class="dcell">
-                        <img src="../../Content/Images/snowdrop.png"/>
-                        <label for="snowdrop">Snowdrop:</label>
-                        <input name="snowdrop" value="0" required>
-                    </div>            
-                </div>            
+                <div class="dcell">
+                    <img src="../../Content/Images/daffodil.png" />
+                    <label for="daffodil">
+                        Daffodil:</label>
+                    <input name="daffodil" value="0" required>
+                </div>
+                <div class="dcell">
+                    <img src="../../Content/Images/rose.png" />
+                    <label for="rose">
+                        Rose:</label>
+                    <input name="rose" value="0" required>
+                </div>
+            </div>
+            <div id="row2" class="drow">
+                <div class="dcell">
+                    <img src="../../Content/Images/peony.png" />
+                    <label for="peony">
+                        Peony:</label>
+                    <input name="peony" value="0" required>
+                </div>
+                <div class="dcell">
+                    <img src="../../Content/Images/primula.png" />
+                    <label for="primula">
+                        Primula:</label>
+                    <input name="primula" value="0" required>
+                </div>
+                <div class="dcell">
+                    <img src="../../Content/Images/snowdrop.png" />
+                    <label for="snowdrop">
+                        Snowdrop:</label>
+                    <input name="snowdrop" value="0" required>
+                </div>
             </div>
         </div>
-        <div id="buttonDiv"><button type="submit">Place Order</button></div>                    
+    </div>
+    <div id="buttonDiv">
+        <button type="submit">
+            Place Order</button></div>
     </form>
 </body>
 </html>
-
