@@ -7,6 +7,8 @@
     <title>Example</title>
     <script src="../../Scripts/jquery-1.8.2.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="../../Content/styles.css" />
+    <link href="../../Content/themes/humanity/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+    <script src="../../Scripts/ui/jquery-ui.custom.js" type="text/javascript"></script>
     <!--Podlaczenie Intellisense do VS-->
     @if (false)
     { 
@@ -132,27 +134,155 @@
         }); 
     </script>*@
     <!--Tworzenie nowego elementu-->
-    
-    <!-- Odczytywanie wartosci poszczegolnych elementow!!!-->
+    <!-- Odczytywanie wartosci poszczegolnych elementow FORMULARZ - wartosci sa odczytywane z argumentu value!!!-->
+    @*<script type="text/javascript">
+          $(document).ready(function () {
+
+
+              $('input').val(function (index, value) {
+                  return index;
+              });
+
+              $('input').each(function (index, value) {
+
+                  var v = $(value).val();
+                  console.log(v);
+              });
+
+          }); 
+    </script>*@ @*
+    Przechowywanie stanu elementu za pomoca funkcji DATA - dane nie sa widoczne dla usera dlatego tez nie ma obawy przed ich zmiana
     <script type="text/javascript">
         $(document).ready(function () {
 
-            debugger;
-            $('input').val(function (index, value) {
-                return index;
+            $("img").each(function (index, element) {
+                $(element).data("aaa", index);
             });
 
-            $('input').each(function (index, value) {
-                var value = $(element).val();
+            var result = $('img').filter(function () {
+                return $(this).data('aaa') == '2';
+            }).each(function (index, element) {
+                console.log(element);
+            });
+        }); 
+    </script>*@ @*<script type="text/javascript">
+        $(document).ready(function () {
+            $('img').bind('mouseenter', foo);
+        });
 
+        function foo(e) {
+            console.log('aaaa');
+        }
+    </script>*@ @*<script type="text/javascript">
+        $(document).ready(function () {
+
+
+
+            $(':submit').click(function (e) {
+                $('#oblock').slideToggle('2000');
+                window.showModalDialog();
+                e.preventDefault();
             });
 
+
+        });
+    </script>*@ 
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#accordion").css("display", "block").accordion({
+                heightStyle: "content",
+                width: "500px"
+            });
+
+            $('button').button({
+                label:"Submit",
+                disabled: false,
+                icons: {
+                    primary: "ui-icon-star",
+                    secondary: "ui-icon-circle-arrow-e"
+                } 
+            });
+            
+            
         }); 
     </script>
+    
+    @*<script type="text/javascript">
+        $(document).ready(function () {
+            $('button').click(function (e) {
+                showDialog();
+                e.preventDefault();
+            });
+        });
+
+
+        function showDialog() {
+            $("#dialog-modal").dialog({
+                height: 240,
+                modal: true,
+                buttons: {
+                    Ok: function () {
+                        $(this).dialog("close");
+                    },
+                    Dupa: function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+        };
+    </script>*@
 </head>
 <body>
     <h1>
         Jacqui's Flower Shop</h1>
+    <div id="accordion" style=" width: 600px; display: none">
+        <h3>
+            Section 1</h3>
+        <div>
+            <p>
+                abc
+            </p>
+        </div>
+        <h3>
+            Section 2</h3>
+        <div>
+            <p>
+                cde
+            </p>
+        </div>
+        <h3>
+            Section 3</h3>
+        <div>
+            <p>
+                efg
+            </p>
+            <ul>
+                <li>List item one</li>
+                <li>List item two</li>
+                <li>List item three</li>
+            </ul>
+        </div>
+        <h3>
+            Section 4</h3>
+        <div>
+            <p>
+                Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada
+                fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et
+                ultrices posuere cubilia Curae; Aenean lacinia mauris vel est.
+            </p>
+            <p>
+                Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class
+                aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+            </p>
+        </div>
+    </div>
+    <div id="dialog-modal" title="Okno modalne" style="display: none">
+        <p style="font-size: 10px">
+            Adding the modal overlay screen makes the dialog look more prominent because it
+            dims out the page content.
+        </p>
+    </div>
     <form method="post">
     <div id="oblock">
         <div class="dtable">
